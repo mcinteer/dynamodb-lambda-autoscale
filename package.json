@@ -21,7 +21,8 @@
     "check": "flow check",
     "build": "gulp dist",
     "start": "node ./scripts/start.js",
-    "debug": "node-debug ./scripts/start.js"
+    "debug": "node-debug ./scripts/start.js",
+    "deploy": "aws lambda update-function-code --function-name dynamodb-lambda-autoscale --zip-file fileb://dist.zip"
   },
   "dependencies": {
   },
