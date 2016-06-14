@@ -26,13 +26,12 @@ export default class DynamoDB {
         TableName: 'dynamodb-lambda-autoscale'
       };
 
-      let res = await this._db.scan(params).promise();
-      console.log(res);
+      let res = await this._db.scan(request).promise();
       return res.data;
     } catch (ex) {
       warning(JSON.stringify({
         class: 'DynamoDB',
-        function: 'listTablesAsync'
+        function: 'listTablesToScaleAsync'
       }, null, json.padding));
       throw ex;
     } finally {
