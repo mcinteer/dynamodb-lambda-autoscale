@@ -10,6 +10,7 @@ resource "aws_iam_role_policy" "dynamodb-lambda-autoscale" {
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
                 "dynamodb:UpdateTable",
+                "dynamodb:scan",
                 "cloudwatch:GetMetricStatistics",
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
