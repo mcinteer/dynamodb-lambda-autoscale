@@ -278,7 +278,7 @@ let configuration: Config = {
   getTableNamesAsync: async (db: DynamoDB) => {
 
     // Ensure all tables are in scope for autoscaling
-    let listTablesResponse = await db.listTablesAsync();
+    let listTablesResponse = await db.listTablesToScaleAsync();
     return listTablesResponse.TableNames;
   },
   getTableUpdate: (

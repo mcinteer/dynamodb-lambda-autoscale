@@ -19,6 +19,27 @@ export default class DynamoDB {
     this._db = new AWS.DynamoDB(dynamoOptions);
   }
 
+  async listTablesToScaleAsync(): Promise<ListTablesResponse> {
+    let sw = stats.timer('DynamoDB.listTablesToScaleAsync').start();
+    try {
+      let request = {
+        TableName: 'dynamodb-lambda-autoscale'
+      };
+
+      let res = await this._db.scan(params).promise();
+      console.log(res);
+      return res.data;
+    } catch (ex) {
+      warning(JSON.stringify({
+        class: 'DynamoDB',
+        function: 'listTablesAsync'
+      }, null, json.padding));
+      throw ex;
+    } finally {
+      sw.end();
+    }
+  }
+
   async listTablesAsync(params: ?ListTablesRequest): Promise<ListTablesResponse> {
     let sw = stats.timer('DynamoDB.listTablesAsync').start();
     try {
