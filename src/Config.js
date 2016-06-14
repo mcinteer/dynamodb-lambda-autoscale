@@ -279,7 +279,12 @@ let configuration: Config = {
 
     // Ensure all tables are in scope for autoscaling
     let listTablesResponse = await db.listTablesToScaleAsync();
-    return listTablesResponse.TableNames;
+    let tableNames = [];
+    for(var i = 0; i < listTablesResponse.Items.length; i++){
+      tableNames.push(listTablesResponse.Items[i].TableName.S);
+    }
+    
+    return tableNames;
   },
   getTableUpdate: (
     description: TableDescription,
