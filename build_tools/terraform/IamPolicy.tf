@@ -14,7 +14,8 @@ resource "aws_iam_role_policy" "dynamodb-lambda-autoscale" {
                 "cloudwatch:GetMetricStatistics",
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
+                "logs:PutLogEvents",
+                "lambda:InvokeFunction",
             ],
             "Effect": "Allow",
             "Resource": "*"
