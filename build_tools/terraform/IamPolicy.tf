@@ -15,7 +15,7 @@ resource "aws_iam_role_policy" "dynamodb-lambda-autoscale" {
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
-                "lambda:InvokeFunction",
+                "lambda:InvokeFunction"
             ],
             "Effect": "Allow",
             "Resource": "*"

@@ -32,18 +32,18 @@ Deployment templates to enable easy deployment to aws environments
                 "lambda:GetFunction"
             ],
             "Resource": [
-                "arn:aws:lambda:us-west-2:<AccountId>:function:dynamodb-lambda-autoscale"
+                "arn:aws:lambda:<Region>:<AccountId>:function:dynamodb-lambda-autoscale"
             ]
         },
         {
-            "Sid": "GetAndSetRemoteTerraformState",
-            "Effect": "Allow",
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": [
-                "*"
-            ]
+           "Sid": "Stmt1465954135559",
+           "Action": [
+               "s3:CreateBucket",
+               "s3:GetObject",
+               "s3:PutObject"
+           ],
+           "Effect": "Allow",
+           "Resource": "*"
         },
         {
             "Sid": "Stmt1457302496002",
@@ -67,7 +67,7 @@ Deployment templates to enable easy deployment to aws environments
                 "dynamodb:DescribeTable"
             ],
             "Resource": [
-                "arn:aws:dynamodb:us-west-2:<AccountId>:table/dynamodb-lambda-autoscale"
+                "arn:aws:dynamodb:<Region>:<AccountId>:table/dynamodb-lambda-autoscale"
             ]
         }
     ]
