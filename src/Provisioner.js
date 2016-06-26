@@ -19,14 +19,15 @@ export default class Provisioner extends ProvisionerConfigurableBase {
   async getTableNamesAsync(): Promise<string[]> {
 
     // Option 1 - All tables (Default)
-    let listTablesResponse = await this.db.listTablesToScaleAsync();
-    return listTablesResponse.TableNames;
+    // let listTablesResponse = await this.db.listTablesAsync();
+    // return listTablesResponse.TableNames;
 
     // Option 2 - Hardcoded list of tables
     // return ['Table1', 'Table2', 'Table3'];
 
     // Option 3 - DynamoDB / S3 configured list of tables
-    // return await ...;
+    let listTablesResponse = await this.db.listTablesToScaleAsync();
+    return listTablesResponse.TableNames;
   }
 
   // Get the json settings which control how the specifed table will be autoscaled

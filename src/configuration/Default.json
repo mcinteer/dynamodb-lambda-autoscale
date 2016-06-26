@@ -1,13 +1,14 @@
 {
   "ReadCapacity": {
-    "Min": 1,
-    "Max": 10,
+    "Min": 10,
+    "Max": 2000,
     "Increment": {
       "When": {
-        "UtilisationIsAbovePercent": 90
+        "UtilisationIsAbovePercent": 50
       },
       "By": {
-        "Units": 3
+        "Units": 3,
+        "ProvisionedPercent": 100
       },
       "To": {
         "ConsumedPercent": 110
@@ -21,7 +22,7 @@
         "UnitAdjustmentGreaterThan": 5
       },
       "To": {
-        "ConsumedPercent": 100
+        "ProvisionedPercent": 50
       }
     }
   },
@@ -42,7 +43,7 @@
     "Decrement": {
       "When": {
         "UtilisationIsBelowPercent": 30,
-        "AfterLastIncrementMinutes": 60,
+        "AfterLastIncrementMinutes": 30,
         "AfterLastDecrementMinutes": 60,
         "UnitAdjustmentGreaterThan": 5
       },
