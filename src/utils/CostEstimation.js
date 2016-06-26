@@ -1,12 +1,14 @@
 /* @flow */
-import { json, warning, invariant } from '../src/Global';
+import { json, warning, invariant } from '../Global';
+import type {
+  Throughput,
+} from 'aws-sdk-promise';
 
 export default class CostEstimation {
 
-  static getMonthlyEstimatedTableCost(provisionedThroughput) {
+  static getMonthlyEstimatedTableCost(provisionedThroughput: Throughput) {
     try {
-      invariant(typeof provisionedThroughput !== 'undefined',
-        'Parameter \'provisionedThroughput\' is not set');
+      invariant(provisionedThroughput != null, 'Parameter \'provisionedThroughput\' is not set');
 
       const averageHoursPerMonth = 720;
       const readCostPerHour = 0.0065;
