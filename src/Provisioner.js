@@ -12,7 +12,7 @@ export default class Provisioner extends ProvisionerConfigurableBase {
 
   // Get the region
   getDynamoDBRegion(): string {
-    return 'us-east-1';
+    return 'us-west-2';
   }
 
   // Get the list of tables which we want to autoscale
@@ -27,6 +27,7 @@ export default class Provisioner extends ProvisionerConfigurableBase {
 
     // Option 3 - DynamoDB / S3 configured list of tables
     let listTablesResponse = await this.db.listTablesToScaleAsync();
+    
     return listTablesResponse.TableNames;
   }
 

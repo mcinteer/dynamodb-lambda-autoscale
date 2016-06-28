@@ -102,9 +102,9 @@ export let handler = async (event: any, context: any) => {
         mean: stJSON['Index.handler'].histogram.mean
       },
       'DynamoDB.listTablesAsync': {
-        mean: stJSON['DynamoDB.listTablesAsync'].histogram.mean,
+        mean: stJSON['DynamoDB.listTablesToScaleAsync'].histogram.mean,
       },
-      'DynamoDB.describeTableAsync': {
+      'DynamoDB.listTablesToScaleAsync': {
         mean: stJSON['DynamoDB.describeTableAsync'].histogram.mean,
       },
       'DynamoDB.describeTableConsumedCapacityAsync': {

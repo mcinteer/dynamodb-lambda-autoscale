@@ -34,21 +34,22 @@
         "UtilisationIsAbovePercent": 90
       },
       "By": {
-        "Units": 3
+        "Units": 3,
+        "ProvisionedPercent": 100
       },
       "To": {
-        "ConsumedPercent": 110
+        "ConsumedPercent": 130
       }
     },
     "Decrement": {
       "When": {
         "UtilisationIsBelowPercent": 30,
-        "AfterLastIncrementMinutes": 30,
+        "AfterLastIncrementMinutes": 60,
         "AfterLastDecrementMinutes": 60,
         "UnitAdjustmentGreaterThan": 5
       },
       "To": {
-        "ConsumedPercent": 100
+        "ProvisionedPercent": 50
       }
     }
   }

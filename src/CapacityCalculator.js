@@ -8,7 +8,7 @@ export default class CapacityCalculator extends CapacityCalculatorBase {
 
   // Get the region
   getCloudWatchRegion() {
-    return 'us-east-1';
+    return 'us-west-2';
   }
 
   getStatisticSettings(): StatisticSettings {

@@ -27,7 +27,13 @@ export default class DynamoDB {
       };
 
       let res = await this._db.scan(request).promise();
-      return res.data;
+      var tableNames = res.data.Items.map(function(item){
+        return item.TableName.S;
+      });
+
+      return {
+        TableNames: tableNames
+      };
     } catch (ex) {
       warning(JSON.stringify({
         class: 'DynamoDB',
